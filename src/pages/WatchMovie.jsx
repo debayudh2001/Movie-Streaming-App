@@ -11,7 +11,7 @@ const WatchMovie = () => {
 
   useEffect(() => {
     dispatch(fetchMovieUrl(tmdbId));
-  }, []);
+  }, [tmdbId, dispatch]);
 
   //console.log(movieUrl);
 
