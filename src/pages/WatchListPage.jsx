@@ -5,10 +5,11 @@ import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { clearWatchList } from "../../app/movieHubSlice";
 import WatchListMovieCard from "../components/WatchListMovieCard";
+import { useState } from "react";
 
 const WatchListPage = () => {
   //const { watchListItems } = useSelector((state) => state.movieHub);
-  const watchListItems = JSON.parse(localStorage.getItem("WatchListData")) 
+  const [watchListItems, setWatchListItems] = useState(JSON.parse(localStorage.getItem("WatchListData"))) 
   const dispatch = useDispatch()
   //console.log(watchListItems)
 
