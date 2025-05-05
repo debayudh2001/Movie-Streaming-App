@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchHomePageData } from "../app/movieHubSlice.js";
 
 const App = () => {
-  const { loading, homePageDataError, error } = useSelector(
+  const { loading, homePageDataError, homePageData } = useSelector(
     (state) => state.movieHub
   );
   const dispatch = useDispatch();
