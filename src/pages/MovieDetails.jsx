@@ -7,7 +7,7 @@ import { addToWatchList, fetchTmdbId } from "../../app/movieHubSlice.js";
 import { useNavigate } from "react-router-dom";
 
 const MovieDetails = () => {
-  const { movieDetails, loading, error } = useSelector(
+  const { movieDetails, loading, movieDetailsError } = useSelector(
     (state) => state.movieHub
   );
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ const MovieDetails = () => {
         ) : error !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
-              {error}
+              {movieDetailsError}
             </span>
           </div>
         ) : (

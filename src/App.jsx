@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchHomePageData } from "../app/movieHubSlice.js";
 
 const App = () => {
-  const { loading, homePageData, error } = useSelector(
+  const { loading, homePageDataError, error } = useSelector(
     (state) => state.movieHub
   );
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const App = () => {
         ) : error !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
-              {error}
+              {homePageDataError}
             </span>
           </div>
         ) : (

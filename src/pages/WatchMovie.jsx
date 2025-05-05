@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { fetchMovieUrl } from "../../app/movieHubSlice";
 
 const WatchMovie = () => {
-  const { tmdbId, movieUrl, loading, error } = useSelector((state) => state.movieHub);
+  const { tmdbId, movieUrl, loading, watchMovieError } = useSelector((state) => state.movieHub);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const WatchMovie = () => {
         ) : error !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
-              {error}
+              {watchMovieError}
             </span>
           </div>
         ) : (

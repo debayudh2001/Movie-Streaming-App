@@ -8,7 +8,7 @@ import { useRef } from "react";
 import MovieCard from "../components/MovieCard";
 
 const SearchPage = () => {
-  const { loading, error, searchResults } = useSelector((state) => state.movieHub)
+  const { loading, searchResultsError, searchResults } = useSelector((state) => state.movieHub)
   const dispatch = useDispatch()
   const input = useRef(null)
   
@@ -44,7 +44,7 @@ const SearchPage = () => {
         ) : error !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
-              {error}
+              {searchResultsError}
             </span>
           </div>
         ) : searchResults.length !== 0 ? (

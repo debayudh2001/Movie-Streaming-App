@@ -53,6 +53,7 @@ export const fetchTmdbId = createAsyncThunk(
             })
             return response.data.tmdbId
         } catch (err) {
+            console.log(err.message)
             return rejectWithValue(err.message)
         }
     }
@@ -114,7 +115,11 @@ const movieHubSlice = createSlice({
         homePageData: [],
         movieDetails: {},
         loading: true,
-        error: null,
+        homePageDataError: null,
+        movieDetailsError: null,
+        searchResultsError: null,
+        watchMovieError: null,
+        tmdbIdError: null,
         tmdbId: null,
         movieUrl: null,
         searchResults: [],
@@ -135,72 +140,74 @@ const movieHubSlice = createSlice({
         builder
             .addCase(fetchHomePageData.pending, (state) => {
                 state.loading = true;
-                state.error = null;
+                state.homePageDataError = null;
             })
             .addCase(fetchHomePageData.fulfilled, (state, action) => {
                 state.homePageData = action.payload
                 state.loading = false
-                state.error = null
+                state.homePageDataError = null
             })
             .addCase(fetchHomePageData.rejected, (state, action) => {
-                state.error = action.payload
+                state.homePageDataError = action.payload
                 state.loading = false
                 state.homePageData = []
             })
             .addCase(fetchMovieDetails.pending, (state) => {
                 state.loading = true
-                state.error = null
+                state.movieDetailsError = null
             })
             .addCase(fetchMovieDetails.fulfilled, (state, action) => {
                 state.loading = false
-                state.error = null
+                state.movieDetailsError = null
                 state.movieDetails = action.payload
                 //console.log(action.payload)
             })
             .addCase(fetchMovieDetails.rejected, (state, action) => {
                 state.loading = false
-                state.error = action.payload
+                state.movieDetailsError = action.payload
                 state.movieDetails = {}
             })
             .addCase(fetchTmdbId.pending, (state) => {
                 state.loading = true
-                state.error = null
+                state.tmdbId = null
             })
             .addCase(fetchTmdbId.fulfilled, (state, action) => {
                 state.tmdbId = action.payload
+                state.loading = false
+                state.tmdbIdError = null
             })
             .addCase(fetchTmdbId.rejected, (state, action) => {
                 state.tmdbId = null
                 state.loading = false
-                state.error = action.payload
+                state.tmdbIdError = action.payload
             })
             .addCase(fetchMovieUrl.pending, (state) => {
                 state.loading = true
-                state.error = null
+                state.watchMovieError = null
             })
             .addCase(fetchMovieUrl.fulfilled, (state, action) => {
                 state.movieUrl = action.payload
                 state.loading = false
-                state.error = null
+                state.watchMovieError = null
             })
             .addCase(fetchMovieUrl.rejected, (state, action) => {
                 state.movieUrl = null
                 state.loading = false
-                state.error = action.payload
+                state.watchMovieError = action.payload
             })
             .addCase(fetchSearchResults.pending, (state) => {
                 state.loading = true
-                state.error = null
+                state.searchResultsError = null
             })
             .addCase(fetchSearchResults.fulfilled, (state, action) => {
                 state.searchResults = action.payload
                 state.loading = false
-                state.error = null
+                state.searchResultsError = null
             })
             .addCase(fetchSearchResults.rejected, (state, action) => {
                 state.searchResults = []
                 state.loading = false
-                state.error = action.payload
+                state.searchResultsError = action.payload
             })
     }
 })
