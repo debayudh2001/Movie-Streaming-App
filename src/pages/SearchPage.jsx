@@ -41,7 +41,7 @@ const SearchPage = () => {
         </form>
         {loading ? (
           <Loader />
-        ) : error !== null ? (
+        ) : searchResultsError !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
               {searchResultsError}

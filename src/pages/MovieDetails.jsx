@@ -21,7 +21,7 @@ const MovieDetails = () => {
       <div className="px-4 py-8 bg-black min-h-screen">
         {loading ? (
           <Loader />
-        ) : error !== null ? (
+        ) : movieDetailsError !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
               {movieDetailsError}

@@ -27,7 +27,7 @@ const App = () => {
         </h1>
         {loading ? (
           <Loader />
-        ) : error !== null ? (
+        ) : homePageDataError !== null ? (
           <div className="flex items-center justify-center">
             <span className="text-2xl font-semibold text-gray-400">
               {homePageDataError}
