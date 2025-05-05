@@ -123,7 +123,7 @@ const movieHubSlice = createSlice({
         tmdbId: null,
         movieUrl: null,
         searchResults: [],
-        watchListItems: []
+        watchListItems: JSON.parse(localStorage.getItem("WatchListData")) || []
     },
     reducers: {
         addToWatchList: (state, action) => {
@@ -132,7 +132,7 @@ const movieHubSlice = createSlice({
         },
         clearWatchList: state => {
             state.watchListItems = []
-            localStorage.setItem("WatchListData", JSON.stringify(state.watchListItems))
+            localStorage.removeItem("WatchListData")
         },
         removeFromWatchList: (state, action) => {
             state.watchListItems = state.watchListItems.filter(item => item.id !== action.payload.id)

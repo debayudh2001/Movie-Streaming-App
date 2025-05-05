@@ -8,8 +8,7 @@ import WatchListMovieCard from "../components/WatchListMovieCard";
 import { useState } from "react";
 
 const WatchListPage = () => {
-  //const { watchListItems } = useSelector((state) => state.movieHub);
-  const [watchListItems, setWatchListItems] = useState(JSON.parse(localStorage.getItem("WatchListData"))) 
+  const { watchListItems } = useSelector((state) => state.movieHub);
   const dispatch = useDispatch()
   //console.log(watchListItems)
 
