@@ -128,12 +128,15 @@ const movieHubSlice = createSlice({
     reducers: {
         addToWatchList: (state, action) => {
             state.watchListItems.push(action.payload)
+            localStorage.setItem("WatchListData", JSON.stringify(state.watchListItems))
         },
         clearWatchList: state => {
             state.watchListItems = []
+            localStorage.setItem("WatchListData", JSON.stringify(state.watchListItems))
         },
         removeFromWatchList: (state, action) => {
             state.watchListItems = state.watchListItems.filter(item => item.id !== action.payload.id)
+            localStorage.setItem("WatchListData", JSON.stringify(state.watchListItems))
         }
     },
     extraReducers: builder => {

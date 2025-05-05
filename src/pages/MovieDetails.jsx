@@ -5,6 +5,7 @@ import Footer from "../components/Footer.jsx";
 import Loader from "../components/Loader.jsx";
 import { addToWatchList, fetchTmdbId } from "../../app/movieHubSlice.js";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const MovieDetails = () => {
   const { movieDetails, loading, movieDetailsError } = useSelector(
@@ -12,6 +13,7 @@ const MovieDetails = () => {
   );
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [clicked, setClicked] = useState(null)
 
   //console.log(movieDetails);
 
@@ -107,8 +109,11 @@ const MovieDetails = () => {
                 >
                   Watch Now
                 </button>
-                <button className="px-4 py-2 rounded-lg font-semibold text-white border-2 border-gray-400 hover:bg-gray-800 transition-colors" onClick={() => dispatch(addToWatchList(movieDetails))}>
-                  Add to Watchlist
+                <button className="px-4 py-2 rounded-lg font-semibold text-white border-2 border-gray-400 hover:bg-gray-800 transition-colors" onClick={() => {
+                    dispatch(addToWatchList(movieDetails))
+                    setClicked(true)
+                  }}>
+                  {clicked ? "Added" : "Add to Watchlist"}
                 </button>
               </div>
 

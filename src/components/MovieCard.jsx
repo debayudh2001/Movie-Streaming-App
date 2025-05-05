@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToWatchList, fetchMovieDetails } from "../../app/movieHubSlice";
+import { addToWatchList, fetchMovieDetails, removeFromWatchList } from "../../app/movieHubSlice";
 import { BookmarkPlus, BookmarkCheck } from "lucide-react"
 import { useState } from "react";
 
@@ -8,11 +8,18 @@ const MovieCard = ({ data }) => {
   const dispatch = useDispatch()
   const [clicked, setClicked] = useState(false)
 
-  function handleClick(e){
+  function handleClick1(e){
     e.preventDefault()
     e.stopPropagation()
     setClicked(!clicked)
     dispatch(addToWatchList(data))
+  }
+
+  function handleClick2(e){
+    e.preventDefault()
+    e.stopPropagation()
+    setClicked(!clicked)
+    dispatch(removeFromWatchList(data))
   }
 
   return (
@@ -31,7 +38,7 @@ const MovieCard = ({ data }) => {
       </div>
       <div className="p-3 flex justify-between">
         <span className="font-semibold text-white line-clamp-1">{data?.originalTitle.slice(0,34)}</span>
-        {clicked ? <BookmarkCheck className="text-white" onClick={handleClick} /> : <BookmarkPlus className="text-white" onClick={handleClick} />}
+        {clicked ? <BookmarkCheck className="text-white" onClick={handleClick2} /> : <BookmarkPlus className="text-white" onClick={handleClick1} />}
       </div>
     </Link>
   );

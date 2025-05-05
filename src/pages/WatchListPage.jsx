@@ -7,7 +7,8 @@ import { clearWatchList } from "../../app/movieHubSlice";
 import WatchListMovieCard from "../components/WatchListMovieCard";
 
 const WatchListPage = () => {
-  const { watchListItems } = useSelector((state) => state.movieHub);
+  //const { watchListItems } = useSelector((state) => state.movieHub);
+  const watchListItems = JSON.parse(localStorage.getItem("WatchListData")) 
   const dispatch = useDispatch()
   //console.log(watchListItems)
 
