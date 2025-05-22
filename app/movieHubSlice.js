@@ -11,7 +11,7 @@ export const fetchHomePageData = createAsyncThunk(
                     headers: {
                         "x-rapidapi-key":
                             import.meta.env.VITE_API_1_KEY,
-                        "x-rapidapi-host": import.meta.env.VITE_API_1_HOST,
+                        "x-rapidapi-host": 'imdb236.p.rapidapi.com',
                     },
                 }
             );
@@ -30,7 +30,7 @@ export const fetchMovieDetails = createAsyncThunk(
                 headers: {
                     "x-rapidapi-key":
                         import.meta.env.VITE_API_1_KEY,
-                    "x-rapidapi-host": import.meta.env.VITE_API_1_HOST,
+                    "x-rapidapi-host": 'imdb236.p.rapidapi.com',
                 },
             })
             return response.data
@@ -48,7 +48,7 @@ export const fetchTmdbId = createAsyncThunk(
                 headers: {
                     "x-rapidapi-key":
                         import.meta.env.VITE_API_1_KEY,
-                    "x-rapidapi-host": import.meta.env.VITE_API_1_HOST,
+                    "x-rapidapi-host": 'imdb236.p.rapidapi.com',
                 },
             })
             return response.data.tmdbId
