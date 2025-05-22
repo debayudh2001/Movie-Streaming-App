@@ -13,7 +13,9 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchHomePageData());
+    if(homePageData.length === 0){
+      dispatch(fetchHomePageData());
+    } 
   }, []);
 
   //console.log(error)
