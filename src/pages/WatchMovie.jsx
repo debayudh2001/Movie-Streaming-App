@@ -35,10 +35,11 @@ const WatchMovie = () => {
               src={movieUrl}
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               allowFullScreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              sandbox="allow-forms allow-scripts allow-same-origin allow-presentation allow-popups allow-modals allow-orientation-lock"
+              referrerPolicy="no-referrer"
               loading="lazy"
-              referrerPolicy="strict-origin"
+              title="Movie Player"
             />
           </div>
         )}
