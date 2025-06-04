@@ -6,7 +6,9 @@ import { useEffect } from "react";
 import { fetchMovieUrl } from "../../app/movieHubSlice";
 
 const WatchMovie = () => {
-  const { tmdbId, movieUrl, loading, watchMovieError } = useSelector((state) => state.movieHub);
+  const { tmdbId, movieUrl, loading, watchMovieError } = useSelector(
+    (state) => state.movieHub
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +35,10 @@ const WatchMovie = () => {
               src={movieUrl}
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+              loading="lazy"
+              referrerPolicy="strict-origin"
             />
           </div>
         )}
